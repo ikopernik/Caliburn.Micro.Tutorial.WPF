@@ -19,5 +19,13 @@ namespace Caliburn.Micro.Tutorial.WPF.ViewModels
             base.OnViewLoaded(view);
             await EditCategories();
         }
+
+        public bool CanFileMenu
+        {
+            get
+            {
+                return false;
+            }
+        }
     }
 }

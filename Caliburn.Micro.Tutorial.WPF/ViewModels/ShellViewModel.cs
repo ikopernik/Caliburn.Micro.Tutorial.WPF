@@ -8,6 +8,18 @@ namespace Caliburn.Micro.Tutorial.WPF.ViewModels
 {
     public class ShellViewModel: Conductor<object>
     {
+        private readonly IWindowManager _windowManager;
+
+        public ShellViewModel(IWindowManager windowManager)
+        {
+            _windowManager = windowManager;
+        }
+
+        public Task About()
+        {
+            return _windowManager.ShowDialogAsync(IoC.Get<AboutViewModel>());
+        }
+
         public Task EditCategories()
         {
             var viewmodel = IoC.Get<CategoryViewModel>();
